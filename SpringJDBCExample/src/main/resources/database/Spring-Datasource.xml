@@ -1,0 +1,21 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+		<property name="url" value="jdbc:sqlserver://localhost;databaseName=Bina" />
+		<property name="username" value="sa" />
+		<property name="password" value="1234" />
+	</bean>
+	
+	<!-- Definition for studentJDBCTemplate bean -->
+   <bean id = "JdbcCustomerDAO" 
+      class = "com.mkyong.customer.dao.impl.JdbcCustomerDAO">
+      <property name = "dataSource" ref = "dataSource" />    
+   </bean>
+	
+	
+
+</beans>
